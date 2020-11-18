@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+</head> 
+<body>
+    <div id="login-box">
+        <div class="left">
+          <h1 style="font-weight: bolder;margin-left: 50px;">REGISTER</h1>
+          <form method="post" action="">{% csrf_token %}
+            {{form.username}}
+            {{form.email}}
+            {{form.password1}}
+            {{form.password2}}
+
+
+            <input class="btn btn-primary" type="Submit" name="Create User" style="margin-left: 50px !important;">
+
+          <!-- <input type="text" name="username" placeholder="Username" />
+          <input type="text" name="email" placeholder="E-mail" />
+          <input type="password" name="password" placeholder="Password" />
+          <input type="password" name="password2" placeholder="Retype password" />
+          
+          <input type="submit" name="signup_submit" value="Register" /> -->
+          </form>
+        </div>
+        
+        <!-- <div class="right">
+          <span class="loginwith">Sign in with<br />social network</span>
+          
+          <button class="social-signin facebook">Log in with facebook</button>
+          <button class="social-signin twitter">Log in with Twitter</button>
+          <button class="social-signin google">Log in with Google+</button>
+        </div>
+        <div class="or">OR</div> -->
+      </div>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" >
+    $(document).ready(function(){
+        $("#id_username").attr('placeholder', '{{form.username.label}}');
+        $("#id_email").attr('placeholder', '{{form.email.label}}');
+        $("#id_password1").attr('placeholder', '{{form.password1.label}}');
+        $("#id_password2").attr('placeholder', '{{form.password2.label}}');
+        
+    });
+</script>
+</html>
